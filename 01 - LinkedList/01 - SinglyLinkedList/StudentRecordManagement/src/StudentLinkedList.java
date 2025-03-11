@@ -1,5 +1,6 @@
 public class StudentLinkedList {
     private StudentListNode head;
+    int size = 0;
 
     public StudentLinkedList() {
         this.head = null;
@@ -30,6 +31,7 @@ public class StudentLinkedList {
             temp = temp.getNext();
         }
         temp.setNext(node);
+        size++;
     }
 
     public void insertAtPosition(Student student, int index) {
@@ -37,11 +39,11 @@ public class StudentLinkedList {
             insertAtHead(student);
             return;
         }
-        if (index == size()) {
+        if (index == size) {
             insertAtEnd(student);
             return;
         }
-        if (index > size()) {
+        if (index > size) {
             System.out.println("Wrong Index");
             return;
         }
@@ -52,17 +54,18 @@ public class StudentLinkedList {
         }
         newNode.setNext(temp.getNext());
         temp.setNext(newNode);
+        size++;
     }
 
-    public int size() {
-        int count = 0;
-        StudentListNode temp = head;
-        while (temp != null) {
-            count++;
-            temp = temp.getNext();
-        }
-        return count;
-    }
+//    public int size() {
+//        int count = 0;
+//        StudentListNode temp = head;
+//        while (temp != null) {
+//            count++;
+//            temp = temp.getNext();
+//        }
+//        return count;
+//    }
 
     public void insertAtHead(Student student) {
         StudentListNode node = new StudentListNode(student);
@@ -73,6 +76,7 @@ public class StudentLinkedList {
         StudentListNode temp = head;
         head = node;
         node.setNext(temp);
+        size++;
     }
 
     public void delete(int rollNumber) {

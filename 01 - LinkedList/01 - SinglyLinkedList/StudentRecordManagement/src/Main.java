@@ -19,5 +19,6 @@ public class Main {
         list.updateGrade(4, 'A');
 
         StudentLinkedList.traverse(list);
+        System.out.println(list.size);
     }
 }
